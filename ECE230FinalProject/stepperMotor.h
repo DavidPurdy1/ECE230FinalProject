@@ -27,12 +27,6 @@ extern "C"
 #include "msp.h"
 #include <stdbool.h>
 
-#define STEPPER_PORT                    P2
-#define STEPPER_MASK                    (0x00F0)
-#define STEPPER_IN1                     (0x0080)
-#define STEPPER_IN2                     (0x0040)
-#define STEPPER_IN3                     (0x0020)
-#define STEPPER_IN4                     (0x0010)
 
 // set initial step timer period for 10 RPM (based on 4MHz clock rate)
 #define INIT_PERIOD                     0x2DC7
@@ -52,6 +46,8 @@ extern "C"
  *
  * \return None
  */
+
+// TODO: Init stepper motor requires the pin and such specified to init instead. Allows for reuse in the car driver module.
 extern void initStepperMotor(void);
 
 
@@ -65,6 +61,7 @@ extern void initStepperMotor(void);
  *
  * \return None
  */
+// Takes in the stepper motor pins
 void enableStepperMotor(void);
 
 
@@ -78,6 +75,7 @@ void enableStepperMotor(void);
  *
  * \return None
  */
+// TODO: Take in stepper motor pins
 void disableStepperMotor(void);
 
 
@@ -90,6 +88,7 @@ void disableStepperMotor(void);
  *
  * \return None
  */
+// TODO: Take in the stepper motor pins
 extern void stepClockwise(void);
 
 
@@ -102,6 +101,7 @@ extern void stepClockwise(void);
  *
  * \return None
  */
+// TODO: Take in stepper Motor Pins
 extern void stepCounterClockwise(void);
 
 
@@ -114,9 +114,11 @@ extern void stepCounterClockwise(void);
  *
  * \return None
  */
+// TODO: Take in stepper motor pins
 extern void setStepperPeriod(uint16_t period);
 
 
+// TODO: Take in stepper motor pins to use
 extern void setDirection(bool isClockwise);
 
 
